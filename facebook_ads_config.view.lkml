@@ -63,7 +63,7 @@ explore: fb_ad_impressions {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      ${actions.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${actions.action_type}  =  _________________ ;;
     relationship: one_to_one
   }
 
@@ -74,7 +74,7 @@ explore: fb_ad_impressions {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${action_values.action_type}  =  _________________ ;;
     relationship: one_to_one
   }
 }
@@ -114,11 +114,11 @@ view: fb_ad_impressions {
   }
 
   dimension: conversions {
-    sql: if(${actions.action_type} = "offsite_conversion.fb_pixel_purchase", ${actions.value}, null) ;;
+    sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
-    sql: if(${action_values.action_type} = "offsite_conversion.fb_pixel_purchase", ${action_values.value}, null) ;;
+    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -133,7 +133,7 @@ explore: fb_ad_impressions_age_and_gender {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      ${actions.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
 
@@ -144,7 +144,7 @@ explore: fb_ad_impressions_age_and_gender {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
 }
@@ -184,11 +184,11 @@ view: fb_ad_impressions_age_and_gender {
   }
 
   dimension: conversions {
-    sql: if(${actions.action_type} = "offsite_conversion.fb_pixel_purchase", ${actions.value}, null) ;;
+    sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
-    sql: if(${action_values.action_type} = "offsite_conversion.fb_pixel_purchase", ${action_values.value}, null) ;;
+    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -203,7 +203,7 @@ explore: fb_ad_impressions_geo {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      ${actions.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
 
@@ -214,7 +214,7 @@ explore: fb_ad_impressions_geo {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
 }
@@ -254,11 +254,11 @@ view: fb_ad_impressions_geo {
   }
 
   dimension: conversions {
-    sql: if(${actions.action_type} = "offsite_conversion.fb_pixel_purchase", ${actions.value}, null) ;;
+    sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
-    sql: if(${action_values.action_type} = "offsite_conversion.fb_pixel_purchase", ${action_values.value}, null) ;;
+    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -273,7 +273,7 @@ explore: fb_ad_impressions_platform_and_device {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      ${actions.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${actions.action_type}  = _________________;;
     relationship: one_to_one
   }
 
@@ -284,7 +284,7 @@ explore: fb_ad_impressions_platform_and_device {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = "offsite_conversion.fb_pixel_purchase";;
+      ${action_values.action_type}  = _________________;;
     relationship: one_to_one
   }
 }
@@ -324,10 +324,10 @@ view: fb_ad_impressions_platform_and_device {
   }
 
   dimension: conversions {
-    sql: if(${actions.action_type} = "offsite_conversion.fb_pixel_purchase", ${actions.value}, null) ;;
+    sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
-    sql: if(${action_values.action_type} = "offsite_conversion.fb_pixel_purchase", ${action_values.value}, null) ;;
+    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
