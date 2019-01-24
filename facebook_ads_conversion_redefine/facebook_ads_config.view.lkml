@@ -6,7 +6,7 @@ include: "/app-marketing-facebook-ads/*.dashboard"
 include: "facebook_actions.view"
 include: "facebook_action_values.view"
 
-# TODO: Update Facebook Ads schema
+# TODO: Update datagroup policy
 datagroup: facebook_ads_etl_datagroup {
   sql_trigger: SELECT COUNT(*) FROM `facebook_ads_for_looker.ads_insights` ;;
   max_cache_age: "24 hours"
@@ -15,7 +15,7 @@ datagroup: facebook_ads_etl_datagroup {
 view: facebook_ads_config {
   extension: required
 
-  # TODO-DONE: Update Facebook Ads schema
+  # TODO: Update Facebook Ads schema
   dimension: facebook_ads_schema {
     hidden: yes
     sql:facebook_ads_for_looker;;
@@ -63,6 +63,7 @@ explore: fb_ad_impressions {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  =  _________________ ;;
     relationship: one_to_one
   }
@@ -74,6 +75,7 @@ explore: fb_ad_impressions {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  =  _________________ ;;
     relationship: one_to_one
   }
@@ -114,10 +116,12 @@ view: fb_ad_impressions {
   }
 
   dimension: conversions {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
@@ -133,6 +137,7 @@ explore: fb_ad_impressions_age_and_gender {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -144,6 +149,7 @@ explore: fb_ad_impressions_age_and_gender {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -184,10 +190,12 @@ view: fb_ad_impressions_age_and_gender {
   }
 
   dimension: conversions {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
@@ -203,6 +211,7 @@ explore: fb_ad_impressions_geo {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -214,6 +223,7 @@ explore: fb_ad_impressions_geo {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -254,10 +264,12 @@ view: fb_ad_impressions_geo {
   }
 
   dimension: conversions {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
@@ -273,6 +285,7 @@ explore: fb_ad_impressions_platform_and_device {
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________;;
     relationship: one_to_one
   }
@@ -284,6 +297,7 @@ explore: fb_ad_impressions_platform_and_device {
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
+      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________;;
     relationship: one_to_one
   }
@@ -324,10 +338,12 @@ view: fb_ad_impressions_platform_and_device {
   }
 
   dimension: conversions {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
   }
 
   dimension: conversionvalue {
+    # TODO: Set action_type equal to specific action_type(s)
     sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
