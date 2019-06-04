@@ -17,11 +17,6 @@ To filter for a specific action_type(s), set the `${actions.action_type}` field 
 in the `sql_on:` parameters for both the actions and action_values joins. Do this for the fb_ad_impressions,
 fb_ad_impressions_age_and_gender, fb_ad_impressions_geo, and fb_ad_impressions_platform_and_device explores.
 
-You can look up the values of action_type with this query:
-```
-select distinct action_type, count (*) from <schema_name>.ads_insights_platform_and_device_actions 
-group by 1
-```
 
 ```
 explore: fb_ad_impressions {
@@ -62,4 +57,10 @@ the appropriate action types.
   dimension: conversionvalue {
     sql: if(${action_values.action_type} = '_________________', ${action_values.value}, null) ;;
   }
+```
+
+You can look up the values of action_type with this query:
+```
+select distinct action_type, count (*) from <schema_name>.ads_insights_platform_and_device_actions 
+group by 1
 ```
