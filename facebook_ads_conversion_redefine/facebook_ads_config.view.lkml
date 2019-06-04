@@ -134,10 +134,10 @@ explore: fb_ad_impressions_age_and_gender {
     from: actions_age_and_gender_fb_custom
     view_label: "Impressions"
     type: left_outer
+    # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -146,10 +146,10 @@ explore: fb_ad_impressions_age_and_gender {
     from: action_values_age_and_gender_fb_custom
     view_label: "Impressions"
     type: left_outer
+    # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -208,10 +208,11 @@ explore: fb_ad_impressions_geo {
     from: actions_region_fb_custom
     view_label: "Impressions"
     type: left_outer
+    
+    # TODO: Set action_type equal to specific action_type(s). Something like this is common: 
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -220,10 +221,10 @@ explore: fb_ad_impressions_geo {
     from: action_values_region_fb_custom
     view_label: "Impressions"
     type: left_outer
+    # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________ ;;
     relationship: one_to_one
   }
@@ -282,10 +283,10 @@ explore: fb_ad_impressions_platform_and_device {
     from: actions_platform_and_device_fb_custom
     view_label: "Impressions"
     type: left_outer
+    # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  = _________________;;
     relationship: one_to_one
   }
@@ -294,10 +295,10 @@ explore: fb_ad_impressions_platform_and_device {
     from: action_values_platform_and_device_fb_custom
     view_label: "Impressions"
     type: left_outer
+    # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
       ${fact.breakdown} = ${action_values.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
       ${action_values.action_type}  = _________________;;
     relationship: one_to_one
   }
