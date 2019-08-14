@@ -67,18 +67,6 @@ explore: fb_ad_impressions {
       ${actions.action_type}  =  _________________ ;;
     relationship: one_to_one
   }
-
-  join: action_values {
-    from: action_values_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
-      ${fact._date} = ${action_values._date} AND
-      ${fact.breakdown} = ${action_values.breakdown} AND
-      # TODO: Set action_type equal to specific action_type(s)
-      ${action_values.action_type}  =  _________________ ;;
-    relationship: one_to_one
-  }
 }
 
 view: fb_ad_impressions {
@@ -87,11 +75,6 @@ view: fb_ad_impressions {
   measure: total_conversions {
     type: number
     sql: ${action_1_d_view} + ${action_28_d_click} ;;
-  }
-  measure: total_conversionvalue {
-    type: number
-    sql: ${action_value_1_d_view} + ${action_value_28_d_click} ;;
-
   }
 
   measure: action_1_d_view {
@@ -104,25 +87,10 @@ view: fb_ad_impressions {
     type: sum
     sql: ${actions._28_d_click} ;;
   }
-  measure: action_value_28_d_click {
-    hidden: yes
-    type: sum
-    sql: ${action_values._28_d_click} ;;
-  }
-  measure: action_value_1_d_view {
-    hidden: yes
-    type: sum
-    sql: ${action_values._1_d_view} ;;
-  }
 
   dimension: conversions {
     # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
-  }
-
-  dimension: conversionvalue {
-    # TODO: Set action_type equal to specific action_type(s)
-    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -141,18 +109,6 @@ explore: fb_ad_impressions_age_and_gender {
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
-
-  join: action_values {
-    from: action_values_age_and_gender_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    # TODO: Set action_type equal to specific action_type(s)
-    sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
-      ${fact._date} = ${action_values._date} AND
-      ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = _________________ ;;
-    relationship: one_to_one
-  }
 }
 
 view: fb_ad_impressions_age_and_gender {
@@ -161,11 +117,6 @@ view: fb_ad_impressions_age_and_gender {
   measure: total_conversions {
     type: number
     sql: ${action_1_d_view} + ${action_28_d_click} ;;
-  }
-  measure: total_conversionvalue {
-    type: number
-    sql: ${action_value_1_d_view} + ${action_value_28_d_click} ;;
-
   }
 
   measure: action_1_d_view {
@@ -178,25 +129,10 @@ view: fb_ad_impressions_age_and_gender {
     type: sum
     sql: ${actions._28_d_click} ;;
   }
-  measure: action_value_28_d_click {
-    hidden: yes
-    type: sum
-    sql: ${action_values._28_d_click} ;;
-  }
-  measure: action_value_1_d_view {
-    hidden: yes
-    type: sum
-    sql: ${action_values._1_d_view} ;;
-  }
 
   dimension: conversions {
     # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
-  }
-
-  dimension: conversionvalue {
-    # TODO: Set action_type equal to specific action_type(s)
-    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -216,18 +152,6 @@ explore: fb_ad_impressions_geo {
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_one
   }
-
-  join: action_values {
-    from: action_values_region_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    # TODO: Set action_type equal to specific action_type(s)
-    sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
-      ${fact._date} = ${action_values._date} AND
-      ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = _________________ ;;
-    relationship: one_to_one
-  }
 }
 
 view: fb_ad_impressions_geo {
@@ -236,11 +160,6 @@ view: fb_ad_impressions_geo {
   measure: total_conversions {
     type: number
     sql: ${action_1_d_view} + ${action_28_d_click} ;;
-  }
-  measure: total_conversionvalue {
-    type: number
-    sql: ${action_value_1_d_view} + ${action_value_28_d_click} ;;
-
   }
 
   measure: action_1_d_view {
@@ -253,25 +172,10 @@ view: fb_ad_impressions_geo {
     type: sum
     sql: ${actions._28_d_click} ;;
   }
-  measure: action_value_28_d_click {
-    hidden: yes
-    type: sum
-    sql: ${action_values._28_d_click} ;;
-  }
-  measure: action_value_1_d_view {
-    hidden: yes
-    type: sum
-    sql: ${action_values._1_d_view} ;;
-  }
 
   dimension: conversions {
     # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
-  }
-
-  dimension: conversionvalue {
-    # TODO: Set action_type equal to specific action_type(s)
-    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
 
@@ -290,18 +194,6 @@ explore: fb_ad_impressions_platform_and_device {
       ${actions.action_type}  = _________________;;
     relationship: one_to_one
   }
-
-  join: action_values {
-    from: action_values_platform_and_device_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    # TODO: Set action_type equal to specific action_type(s)
-    sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
-      ${fact._date} = ${action_values._date} AND
-      ${fact.breakdown} = ${action_values.breakdown} AND
-      ${action_values.action_type}  = _________________;;
-    relationship: one_to_one
-  }
 }
 
 view: fb_ad_impressions_platform_and_device {
@@ -310,11 +202,6 @@ view: fb_ad_impressions_platform_and_device {
   measure: total_conversions {
     type: number
     sql: ${action_1_d_view} + ${action_28_d_click} ;;
-  }
-  measure: total_conversionvalue {
-    type: number
-    sql: ${action_value_1_d_view} + ${action_value_28_d_click} ;;
-
   }
 
   measure: action_1_d_view {
@@ -327,24 +214,9 @@ view: fb_ad_impressions_platform_and_device {
     type: sum
     sql: ${actions._28_d_click} ;;
   }
-  measure: action_value_28_d_click {
-    hidden: yes
-    type: sum
-    sql: ${action_values._28_d_click} ;;
-  }
-  measure: action_value_1_d_view {
-    hidden: yes
-    type: sum
-    sql: ${action_values._1_d_view} ;;
-  }
 
   dimension: conversions {
     # TODO: Set action_type equal to specific action_type(s)
     sql: if(${actions.action_type} = _________________, ${actions.value}, null) ;;
-  }
-
-  dimension: conversionvalue {
-    # TODO: Set action_type equal to specific action_type(s)
-    sql: if(${action_values.action_type} = _________________, ${action_values.value}, null) ;;
   }
 }
