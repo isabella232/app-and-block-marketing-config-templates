@@ -65,7 +65,7 @@ explore: fb_ad_impressions {
       ${fact.breakdown} = ${actions.breakdown} AND
       # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  =  _________________ ;;
-    relationship: one_to_one
+    relationship: one_to_many
   }
 }
 
@@ -107,7 +107,7 @@ explore: fb_ad_impressions_age_and_gender {
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________ ;;
-    relationship: one_to_one
+    relationship: one_to_many
   }
 }
 
@@ -150,7 +150,7 @@ explore: fb_ad_impressions_geo {
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________ ;;
-    relationship: one_to_one
+    relationship: one_to_many
   }
 }
 
@@ -192,7 +192,7 @@ explore: fb_ad_impressions_platform_and_device {
       ${fact._date} = ${actions._date} AND
       ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________;;
-    relationship: one_to_one
+    relationship: one_to_many
   }
 }
 
