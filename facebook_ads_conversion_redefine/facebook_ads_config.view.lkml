@@ -62,7 +62,6 @@ explore: fb_ad_impressions {
     type: left_outer
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${fact.breakdown} = ${actions.breakdown} AND
       # TODO: Set action_type equal to specific action_type(s)
       ${actions.action_type}  =  _________________ ;;
     relationship: one_to_many
@@ -105,7 +104,6 @@ explore: fb_ad_impressions_age_and_gender {
     # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_many
   }
@@ -148,7 +146,6 @@ explore: fb_ad_impressions_geo {
     # TODO: Set action_type equal to specific action_type(s). Something like this is common: 
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________ ;;
     relationship: one_to_many
   }
@@ -190,7 +187,6 @@ explore: fb_ad_impressions_platform_and_device {
     # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = _________________;;
     relationship: one_to_many
   }
