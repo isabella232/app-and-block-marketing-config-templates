@@ -28,7 +28,6 @@ explore: fb_ad_impressions {
     type: left_outer
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${fact.breakdown} = ${actions.breakdown} AND
       ${actions.action_type}  = '_________________' ;;
     relationship: one_to_one
   }
@@ -39,7 +38,6 @@ explore: fb_ad_impressions {
     type: left_outer
     sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
       ${fact._date} = ${action_values._date} AND
-      ${fact.breakdown} = ${action_values.breakdown} AND
       ${action_values.action_type}  = '_________________' ;;
     relationship: one_to_one
   }
