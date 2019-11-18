@@ -187,7 +187,10 @@ explore: fb_ad_impressions_platform_and_device {
     # TODO: Set action_type equal to specific action_type(s)
     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
       ${fact._date} = ${actions._date} AND
-      ${actions.action_type}  = _________________;;
+      ${fact.impression_device} = ${actions.impression_device} AND
+      ${fact.platform_position} = ${actions.platform_position} AND
+      ${fact.publisher_platform} = ${actions.publisher_platform} AND
+      ${actions.action_type}  = _________________ ;;
     relationship: one_to_many
   }
 }
