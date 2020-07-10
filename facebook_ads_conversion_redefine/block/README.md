@@ -13,6 +13,8 @@ in the `sql_on:` parameters for both the actions and action_values joins. Do thi
 fb_ad_impressions_age_and_gender, fb_ad_impressions_geo, and fb_ad_impressions_platform_and_device explores.
 
 
+Uncomment the actions join in each of these explores and fill in the action_type(s):
+
 ```
 explore: fb_ad_impressions_config {
   hidden: no
