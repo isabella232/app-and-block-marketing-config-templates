@@ -2,13 +2,7 @@
 # Facebook Ads Block, Config Template by Looker
 
 ### Summary:
-Configuration LookML files meant to be used alongside the standard Marketing Analytics Configuration files found below:
-https://github.com/looker/app-marketing-config
-
-### Includes:
-- `facebook_ads_config.view.lkml`: modified version of the standard facebook_ads_config.view.lkml file
-- `facebook_actions.view.lkml`: views for Facebook action tables 
-- `facebook_action_values.view.lkml`: views for Facebook action value tables
+Instruction of how to edit the definition of Conversions inside the [Facebook Ads Block] (https://github.com/looker/block-facebook-ads)
 
 ### How-To:
 The views and explores for fb_ad_impressions, fb_ad_impressions_age_and_gender, fb_ad_impressions_geo, 
@@ -20,42 +14,33 @@ fb_ad_impressions_age_and_gender, fb_ad_impressions_geo, and fb_ad_impressions_p
 
 
 ```
-explore: fb_ad_impressions {
+explore: fb_ad_impressions_config {
+  hidden: no
+  group_label: "Block Facebook Ads"
+  extension: required
   extends: [fb_ad_impressions_template]
 
-  join: actions {
-    from: actions_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    sql_on: ${fact.ad_id} = ${actions.ad_id} AND
-      ${fact._date} = ${actions._date} AND
-      ${actions.action_type}  = '_________________' ;;
-    relationship: one_to_one
+join: actions {
+     from: actions_fb_custom
+     view_label: "Impressions"
+     type: left_outer
+     sql_on: ${fact.ad_id} = ${actions.ad_id} AND
+       ${fact._date} = ${actions._date} AND
+       ${actions.action_type}  = '______' ;;
+     relationship: one_to_one
   }
-
-  join: action_values {
-    from: action_values_fb_custom
-    view_label: "Impressions"
-    type: left_outer
-    sql_on: ${fact.ad_id} = ${action_values.ad_id} AND
-      ${fact._date} = ${action_values._date} AND
-      ${action_values.action_type}  = '_________________' ;;
-    relationship: one_to_one
-  }
-}
 ```
 
-Then, in the corresponding view files, replace the blank spaces in the `conversion` and `conversionvalue` dimensions with
+Then, in the corresponding view files, replace the blank spaces in the `offsite_conversion_value` and dimensions with
 the appropriate action types.
 
 ```
- dimension: conversions {
-    sql: if(${actions.action_type} = '_________________', ${actions.value}, null) ;;
+  dimension: offsite_conversion_value {
+     hidden: yes
+     type: number
+     sql: if(${action_type} = "test", ${value}, null) ;;
   }
 
-  dimension: conversionvalue {
-    sql: if(${action_values.action_type} = '_________________', ${action_values.value}, null) ;;
-  }
 ```
 
 You can look up the values of action_type with this query:
