@@ -40,7 +40,7 @@ the appropriate action types.
   dimension: offsite_conversion_value {
      hidden: yes
      type: number
-     sql: if(${action_type} = "test", ${value}, null) ;;
+     sql: if(${action_type} = "____", ${value}, null) ;;
   }
 
 ```
